@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tables 1–99</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1d2a4d">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f3f1e8;--grid:#dcdfe6;--surf:#fffdf6;--ink:#1d2a4d;--mute:#5d6783;--line:#c9cde0;--acc:#2f4fd8;--acc-t:#fff;--ok:#1f7a4d;--okb:#dff3e8;--bad:#b3322d;--badb:#fbe3e1;--pen:#f2c94c;
@@ -209,6 +213,7 @@ function finish(){
   $("miss").innerHTML=missed.length?"<li><b>To review</b></li>"+missed.map(m=>`<li>${m.q} = <b>${m.a}</b> (you answered <s>${m.you}</s>)</li>`).join(""):"";
 }
 $("again").onclick=()=>{$("done").hidden=true;$("setup").hidden=false;showBest()};
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
 </script>
 </body>
 </html>
