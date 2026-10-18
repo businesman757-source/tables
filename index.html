@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tables 1–99</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1e8;--grid:#dcdfe6;--surf:#fffdf6;--ink:#1d2a4d;--mute:#5d6783;--line:#c9cde0;--acc:#2f4fd8;--acc-t:#fff;--ok:#1f7a4d;--okb:#dff3e8;--bad:#b3322d;--badb:#fbe3e1;--pen:#f2c94c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14172a;--grid:#1f2440;--surf:#1b1f38;--ink:#e8ebfa;--mute:#98a1c4;--line:#343b62;--acc:#8ea2ff;--acc-t:#10142b;--ok:#6fd6a0;--okb:#17382b;--bad:#ff8f89;--badb:#42201f;--pen:#e3b93c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14172a;--grid:#1f2440;--surf:#1b1f38;--ink:#e8ebfa;--mute:#98a1c4;--line:#343b62;--acc:#8ea2ff;--acc-t:#10142b;--ok:#6fd6a0;--okb:#17382b;--bad:#ff8f89;--badb:#42201f;--pen:#e3b93c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font:16px/1.5 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1{font:400 clamp(2rem,7vw,3rem)/1.1 "Young Serif",Georgia,serif;margin:8px 0 4px}
+.sub{color:var(--mute);margin:0 0 18px}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+button{font:inherit;cursor:pointer;color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--surf);border-radius:10px;font-weight:700}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.card{background:var(--surf);border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:4px 4px 0 var(--ink)}
+.picker{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
+.step{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);background:var(--pen);font-size:1.4rem;font-weight:700;color:#1d2a4d}
+input[type=number]{width:96px;font:700 2rem "Young Serif",Georgia,serif;text-align:center;border:2px solid var(--ink);border-radius:10px;padding:4px;background:var(--bg);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:5px}
+.cell{padding:7px 0;border:1.5px solid var(--line);background:var(--bg);border-radius:8px;font-weight:600;font-size:.9rem}
+.cell[aria-pressed="true"]{background:var(--acc);color:var(--acc-t);border-color:var(--acc)}
+.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 18px;margin-top:14px}
+.row{display:flex;justify-content:space-between;padding:6px 4px;border-bottom:1.5px dashed var(--line);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.row b{color:var(--acc)}
+.toggle{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.pill{padding:6px 14px;border:2px solid var(--ink);border-radius:99px;background:var(--surf);font-weight:600}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+label{display:block;font-weight:600;margin:12px 0 4px}
+.fields{display:flex;gap:12px;flex-wrap:wrap}
+.fields input{width:92px;font-size:1.2rem;padding:6px}
+.primary{padding:12px 24px;border:2px solid var(--ink);border-radius:10px;background:var(--acc);color:var(--acc-t);font-weight:700;font-size:1.05rem;margin-top:16px}
+.q{font:400 clamp(2.2rem,9vw,3.4rem)/1.1 "Young Serif",Georgia,serif;text-align:center;margin:14px 0}
+.bar{height:10px;border:2px solid var(--ink);border-radius:99px;overflow:hidden;background:var(--bg)}
+.bar i{display:block;height:100%;background:var(--pen);transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-weight:600;margin-bottom:6px}
+.ans{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ans input{width:170px}
+.fb{min-height:3em;text-align:center;font-weight:700;margin-top:12px;border-radius:10px;padding:8px}
+.fb.ok{background:var(--okb);color:var(--ok)}.fb.bad{background:var(--badb);color:var(--bad)}
+.score{font:400 3rem/1 "Young Serif",Georgia,serif;text-align:center}
+.miss{margin:10px 0 0;padding:0;list-style:none}
+.miss li{padding:6px 0;border-bottom:1.5px dashed var(--line)}
+.miss s{color:var(--bad)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Tables 1–99</h1>
+<p class="sub">Learn any multiplication table from 1 to 99, then test yourself.</p>
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" id="t-learn" aria-selected="true">Learn</button>
+  <button class="tab" role="tab" id="t-quiz" aria-selected="false">Quiz</button>
+</div>
+
+<section id="learn">
+  <div class="card">
+    <div class="picker">
+      <button class="step" id="prev" aria-label="Previous table">−</button>
+      <input type="number" id="num" min="1" max="99" value="7" aria-label="Table number">
+      <button class="step" id="next" aria-label="Next table">+</button>
+    </div>
+    <div class="toggle" id="lenToggle" role="group" aria-label="How far to go">
+      <button class="pill" data-n="10" aria-pressed="true">Up to ×10</button>
+      <button class="pill" data-n="12" aria-pressed="false">Up to ×12</button>
+      <button class="pill" data-n="20" aria-pressed="false">Up to ×20</button>
+    </div>
+    <div class="rows" id="rows"></div>
+  </div>
+  <div class="card">
+    <b>Pick a table</b>
+    <div class="grid" id="grid" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<section id="quiz" hidden>
+  <div class="card" id="setup">
+    <b>Set up your quiz</b>
+    <div class="fields">
+      <div><label for="from">Tables from</label><input type="number" id="from" min="1" max="99" value="2"></div>
+      <div><label for="to">to</label><input type="number" id="to" min="1" max="99" value="12"></div>
+      <div><label for="count">Questions</label><input type="number" id="count" min="5" max="50" value="10"></div>
+    </div>
+    <label for="mx">Multiply by numbers up to</label>
+    <input type="number" id="mx" min="2" max="20" value="10" style="width:92px;font-size:1.2rem;padding:6px;border:2px solid var(--ink);border-radius:10px;background:var(--bg);color:var(--ink)">
+    <div><button class="primary" id="start">Start quiz</button></div>
+    <p class="sub" id="best" style="margin:14px 0 0"></p>
+    <p class="sub" id="setupErr" style="color:var(--bad);margin:6px 0 0"></p>
+  </div>
+
+  <div class="card" id="play" hidden>
+    <div class="meta"><span id="qn"></span><span id="sc"></span></div>
+    <div class="bar"><i id="pb" style="width:0"></i></div>
+    <div class="q" id="qtext"></div>
+    <div class="ans">
+      <input type="number" id="ans" inputmode="numeric" aria-label="Your answer" autocomplete="off">
+      <button class="primary" id="check" style="margin-top:0">Check</button>
+    </div>
+    <div class="fb" id="fb" aria-live="polite"></div>
+  </div>
+
+  <div class="card" id="done" hidden>
+    <div class="score" id="final"></div>
+    <p class="sub" id="msg" style="text-align:center;margin:8px 0"></p>
+    <ul class="miss" id="miss"></ul>
+    <div class="toggle"><button class="primary" id="again">Play again</button></div>
+  </div>
+</section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+let cur=7,len=10;
+
+/* storage helpers: always guarded */
+function save(k,v){try{localStorage.setItem(k,String(v))}catch(e){}}
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+
+/* tabs */
+function showTab(t){
+  const q=t==="quiz";
+  $("learn").hidden=q;$("quiz").hidden=!q;
+  $("t-learn").setAttribute("aria-selected",!q);$("t-quiz").setAttribute("aria-selected",q);
+  if(q)showBest();
+}
+$("t-learn").onclick=()=>showTab("learn");
+$("t-quiz").onclick=()=>showTab("quiz");
+
+/* learn */
+const grid=$("grid");
+for(let i=1;i<=99;i++){const b=document.createElement("button");b.className="cell";b.textContent=i;b.setAttribute("aria-pressed","false");b.onclick=()=>setNum(i);grid.appendChild(b)}
+function setNum(n){
+  n=Math.max(1,Math.min(99,parseInt(n)||1));cur=n;$("num").value=n;
+  [...grid.children].forEach((c,i)=>c.setAttribute("aria-pressed",i+1===n));
+  let h="";for(let k=1;k<=len;k++)h+=`<div class="row"><span>${n} × ${k}</span><b>${n*k}</b></div>`;
+  $("rows").innerHTML=h;
+}
+$("prev").onclick=()=>setNum(cur-1);
+$("next").onclick=()=>setNum(cur+1);
+$("num").oninput=e=>{if(e.target.value!=="")setNum(e.target.value)};
+document.querySelectorAll("#lenToggle .pill").forEach(p=>p.onclick=()=>{
+  len=+p.dataset.n;
+  document.querySelectorAll("#lenToggle .pill").forEach(x=>x.setAttribute("aria-pressed",x===p));
+  setNum(cur);
+});
+setNum(cur);
+
+/* quiz */
+let qs=[],qi=0,score=0,missed=[],locked=false;
+function showBest(){
+  const b=load("tables99.best");
+  $("best").textContent=b?`Your best score so far: ${b}%`:"Your best score will appear here after your first quiz.";
+}
+function clamp(v,a,b,d){v=parseInt(v);return isNaN(v)?d:Math.max(a,Math.min(b,v))}
+$("start").onclick=()=>{
+  let a=clamp($("from").value,1,99,2),b=clamp($("to").value,1,99,12);
+  if(a>b){[a,b]=[b,a]}
+  const n=clamp($("count").value,5,50,10),mx=clamp($("mx").value,2,20,10);
+  $("from").value=a;$("to").value=b;$("count").value=n;$("mx").value=mx;
+  qs=[];
+  for(let i=0;i<n;i++){
+    const t=a+Math.floor(Math.random()*(b-a+1)),k=1+Math.floor(Math.random()*mx);
+    qs.push(Math.random()<.5?[t,k]:[k,t]);
+  }
+  qi=0;score=0;missed=[];
+  $("setup").hidden=true;$("done").hidden=true;$("play").hidden=false;
+  ask();
+};
+function ask(){
+  locked=false;const [x,y]=qs[qi];
+  $("qn").textContent=`Question ${qi+1} of ${qs.length}`;
+  $("sc").textContent=`Score: ${score}`;
+  $("pb").style.width=(qi/qs.length*100)+"%";
+  $("qtext").textContent=`${x} × ${y} = ?`;
+  $("ans").value="";$("ans").disabled=false;
+  $("fb").className="fb";$("fb").textContent="";
+  $("check").textContent="Check";
+  $("ans").focus();
+}
+function check(){
+  if(locked){qi++;return qi<qs.length?ask():finish()}
+  const v=$("ans").value;if(v==="")return;
+  const [x,y]=qs[qi],r=x*y;locked=true;$("ans").disabled=true;
+  if(parseInt(v)===r){score++;$("fb").className="fb ok";$("fb").textContent="Correct. Nicely done."}
+  else{missed.push({q:`${x} × ${y}`,a:r,you:v});$("fb").className="fb bad";$("fb").textContent=`Not quite. ${x} × ${y} = ${r}.`}
+  $("sc").textContent=`Score: ${score}`;
+  $("check").textContent=qi+1<qs.length?"Next question":"See results";
+  $("check").focus();
+}
+$("check").onclick=check;
+$("ans").onkeydown=e=>{if(e.key==="Enter")check()};
+function finish(){
+  $("play").hidden=true;$("done").hidden=false;
+  const p=Math.round(score/qs.length*100);
+  $("final").textContent=`${score} / ${qs.length}`;
+  const prev=parseInt(load("tables99.best")||"0");
+  let note=p===100?"A perfect round.":p>=80?"Strong work.":p>=50?"Good progress. A little more practice will help.":"Keep going. Revisit these tables on the Learn tab and try again.";
+  if(p>prev){save("tables99.best",p);note+=" That’s a new best score.";}
+  $("msg").textContent=`${p}%. ${note}`;
+  $("miss").innerHTML=missed.length?"<li><b>To review</b></li>"+missed.map(m=>`<li>${m.q} = <b>${m.a}</b> (you answered <s>${m.you}</s>)</li>`).join(""):"";
+}
+$("again").onclick=()=>{$("done").hidden=true;$("setup").hidden=false;showBest()};
+</script>
+</body>
+</html>
